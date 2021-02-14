@@ -5,20 +5,23 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const input = document.getElementById('duration');
+const backBtn = document.getElementById('back-btn');
+const Reload = document.getElementById('reload');
+const searchImg = document.getElementById('search');
 
 //Enter button
-document.getElementById('search').addEventListener('keypress', function (event) {
+searchImg.addEventListener('keypress', function (event) {
   if (event.key == 'Enter') {
     document.getElementById('search-btn').click();
   }
 })
 
 // disabled create slider button for negative value
-input.addEventListener('keyup', () =>{
-  if(input.value < 0){
+input.addEventListener('keyup', () => {
+  if (input.value < 0) {
     sliderBtn.disabled = true;
   }
-  else{
+  else {
     sliderBtn.disabled = false;
   }
 })
@@ -42,9 +45,8 @@ const showImages = (images) => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick='selectItem(event,"${image.webformatURL}")' src="${image.webformatURL}" alt="${image.tags}">`;
-    gallery.appendChild(div)
+    gallery.appendChild(div);
   })
-
 }
 
 const getImages = (query) => {
@@ -90,7 +92,6 @@ const createSlider = () => {
   // hide image aria 
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
-  console.log(duration)
 
   sliders.forEach(slide => {
     let item = document.createElement('div')
@@ -98,7 +99,7 @@ const createSlider = () => {
     item.innerHTML = `<img class="w-100"
     src="${slide}"
     alt="">`;
-    sliderContainer.appendChild(item)
+    sliderContainer.appendChild(item);
   })
   changeSlide(0)
   timer = setInterval(function () {
@@ -134,7 +135,6 @@ const changeSlide = (index) => {
 }
 
 searchBtn.addEventListener('click', function () {
-  // document.getElementById('search').innerHTML = '';
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
@@ -145,3 +145,16 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider();
 })
+
+// feature: 1
+backBtn.addEventListener('click', function () {
+  document.querySelector('.main').style.display = 'none';
+  clearInterval(timer);
+  imagesArea.style.display = 'block';
+})
+
+// feature: 2
+Reload.addEventListener('click', function(){
+  location.reload();
+})
+

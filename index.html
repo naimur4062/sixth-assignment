@@ -20,7 +20,7 @@
     <h4 class="mt-2 text-center">Search Image for create slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
       <div class="input-group col-md-6 mb-2">
-        <input type="text" class="form-control" id="search" placeholder="nature">
+        <input type="text" class="form-control" id="search" placeholder="Type items name">
       </div>
       <button type="button" id="search-btn" class="btn btn-primary mb-2">Search</button>
     </div>
@@ -45,7 +45,11 @@
         <span class="dot" onclick="changeItem(-1)"></span>
         <span class="dot" onclick="changeItem(1)"></span>
       </div>
-    </div>
+      <div class="d-flex justify-content-around mt-3">
+        <button type="button" id="back-btn" class="btn btn-primary mb-2">Back to images</button>
+        <button type="button" id="reload" class="btn btn-primary mb-2">Reload page</button>
+      </div>
+    </div>  
   </div>
   <!-- Optional JavaScript -->
   <script src="./app.js"></script>
