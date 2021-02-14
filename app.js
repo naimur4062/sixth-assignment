@@ -146,14 +146,14 @@ sliderBtn.addEventListener('click', function () {
   createSlider();
 })
 
-// feature: 1
+// Improvement feature: 1
 backBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   imagesArea.style.display = 'block';
 })
 
-// feature: 2
+// Improvement feature: 2
 Reload.addEventListener('click', function(){
   location.reload();
 })
